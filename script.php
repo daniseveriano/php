@@ -1,5 +1,8 @@
 <?php
+// inicialização da sessão
+session_start();
 
+//array numerico, iniciando do zero
 $Categorias = [];
 $Categorias[] = "Infantil";
 $Categorias[] = "Adolescentes";
@@ -11,7 +14,9 @@ $nome = $_POST["name"];
 $idade = $_POST["age"];
 
 if(empty($nome)) {
-    echo "O nome não pode ser vazio";
+    // vai criar um array de sessao (array associativo, atribui um valor a uma chave)
+    // com a chave 'mensagem de erro'
+    $_SESSION["mensagem de erro"] = "O nome não pode ser vazio";
     return;
 }
 if(strlen($nome) < 3) {

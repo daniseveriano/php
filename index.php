@@ -1,3 +1,7 @@
+<?php
+// inicialização da sessão
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,6 +19,9 @@
     requisição, no formato query strings
 Ex: http://localhost/php/script.php?name=Daniele+Cosvosk+C.+Severiano&age=34 -->
     <form action="script.php" method="post">
+        <?php
+        $mensagemDeErro = isset($_SESSION["mensagem de erro"]) ? $_SESSION["mensagem de erro"] : null;
+        ?>
         <div>
             <label for="name">Seu Nome:</label>
             <input type="text" name="name">
