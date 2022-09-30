@@ -1,6 +1,6 @@
 <?php
 // inicialização da sessão
-session_start();
+include "services/MessageSessionService.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,12 +29,12 @@ Ex: http://localhost/php/script.php?name=Daniele+Cosvosk+C.+Severiano&age=34 -->
         </div>
         <input type="submit" value="Enviar dados do competidor">
         <?php
-            $mensagemDeSucesso = isset($_SESSION["mensagem de sucesso"]) ? $_SESSION["mensagem de sucesso"] : "";
+            $mensagemDeSucesso = getSuccessMessage();
             if(!empty($mensagemDeSucesso)) {
                 echo $mensagemDeSucesso;
             }
 
-            $mensagemDeErro = isset($_SESSION["mensagem de erro"]) ? $_SESSION["mensagem de erro"] : "";
+            $mensagemDeErro = getErrorMessage();
             if(!empty($mensagemDeErro)) {
                 echo $mensagemDeErro;
             }

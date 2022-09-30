@@ -7,7 +7,7 @@ function setSuccessMessage($mensagem) : void //retorno vazio
     $_SESSION["mensagem de sucesso"] = $mensagem;
 }
 
-function getErrorSuccess() : ?string
+function getSuccessMessage() : ?string
 {
     if(isset($_SESSION["mensagem de sucesso"])) {
         return $_SESSION["mensagem de sucesso"];
