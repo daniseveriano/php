@@ -29,6 +29,11 @@ Ex: http://localhost/php/script.php?name=Daniele+Cosvosk+C.+Severiano&age=34 -->
         </div>
         <input type="submit" value="Enviar dados do competidor">
         <?php
+            $mensagemDeSucesso = isset($_SESSION["mensagem de sucesso"]) ? $_SESSION["mensagem de sucesso"] : "";
+            if(!empty($mensagemDeSucesso)) {
+                echo $mensagemDeSucesso;
+            }
+
             $mensagemDeErro = isset($_SESSION["mensagem de erro"]) ? $_SESSION["mensagem de erro"] : "";
             if(!empty($mensagemDeErro)) {
                 echo $mensagemDeErro;
