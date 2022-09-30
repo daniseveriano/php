@@ -5,6 +5,7 @@ function defineCategory($nome, $idade) : ?string
     //array numerico, iniciando do zero
     $categorias = ["Infantil", "Adolescentes", "Adulto"];
 
+    removeErrorMessage();
     if(nameValidation($nome) && ageValidation($idade))
     {
         if ($idade >= 6 && $idade <= 12) {
@@ -30,6 +31,7 @@ function defineCategory($nome, $idade) : ?string
             }
         }
     } else {
+        removeSuccessMessage();
         return getErrorMessage();
     }   
 }
