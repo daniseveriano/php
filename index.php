@@ -19,9 +19,6 @@ session_start();
     requisição, no formato query strings
 Ex: http://localhost/php/script.php?name=Daniele+Cosvosk+C.+Severiano&age=34 -->
     <form action="script.php" method="post">
-        <?php
-        $mensagemDeErro = isset($_SESSION["mensagem de erro"]) ? $_SESSION["mensagem de erro"] : null;
-        ?>
         <div>
             <label for="name">Seu Nome:</label>
             <input type="text" name="name">
@@ -31,6 +28,12 @@ Ex: http://localhost/php/script.php?name=Daniele+Cosvosk+C.+Severiano&age=34 -->
             <input type="text" name="age">
         </div>
         <input type="submit" value="Enviar dados do competidor">
+        <?php
+            $mensagemDeErro = isset($_SESSION["mensagem de erro"]) ? $_SESSION["mensagem de erro"] : "";
+            if(!empty($mensagemDeErro)) {
+                echo $mensagemDeErro;
+            }
+        ?>
     </form>
 </body>
 

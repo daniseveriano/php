@@ -17,19 +17,19 @@ if(empty($nome)) {
     // vai criar um array de sessao (array associativo, atribui um valor a uma chave)
     // com a chave 'mensagem de erro'
     $_SESSION["mensagem de erro"] = "O nome não pode ser vazio";
-    return;
+    header("Location: index.php");
 }
 if(strlen($nome) < 3) {
-    echo "O nome deve conter mais que 3 caracteres";
-    return;
+    $_SESSION["mensagem de erro"] = "O nome deve conter mais que 3 caracteres";
+    header("Location: index.php");
 }
 if(strlen($nome) > 40) {
-    echo "O nome é muito extenso!";
-    return;
+    $_SESSION["mensagem de erro"] = "O nome é muito extenso!";
+    header("Location: index.php");
 }
 if(!is_numeric($idade)) {
-    echo "Informe um número para idade";
-    return;
+    $_SESSION["mensagem de erro"] = "Informe um número para idade";
+    header("Location: index.php");
 }
 
 // var_dump($nome);
