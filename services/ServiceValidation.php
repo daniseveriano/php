@@ -17,11 +17,11 @@ function nameValidation($nome) : bool
     return true;
 }
 
-function ageValidation($idade)
+function ageValidation($idade) : bool
 {
     if (!is_numeric($idade)) {
         $_SESSION["mensagem de erro"] = "Informe um número para idade";
-        header("Location: index.php");
-        return;
+        return false;
     }
+    return true;
 }
